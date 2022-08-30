@@ -8,6 +8,7 @@
 ## 사용한 소스들
 - [FullCalendar](https://fullcalendar.io/)
 - [WeatherWidget.io](https://weatherwidget.io/)
+- 인터넷에서 찾은 어느 시계 javascript..
 - Google에서 찾은 배경 이미지들..
 - Youtube에서 찾은 Countdown sound (5초)
 
