@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='fullcalendar-5.10.0/lib/main.css' rel='stylesheet' />
+<link rel="stylesheet" href="digital-clock-and-date/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+<script src='fullcalendar-5.10.0/lib/main.js'></script>
+<script>
+	var audio = new Audio('audio/5sec.mp3'); // 소리 파일
+    var id =setInterval(function () {
+    var hr = new Date().getHours();
+		var min = new Date().getMinutes();
+		var sec = new Date().getSeconds();
+        if (min==59){   //myDate.getHours();    //       (0-23) 
+            if (hr==11 && sec==50)
+            {
+              //console.log('   ',new Date().getHours());
+              audio.play();
+              //clearInterval(id);
+            }
+            if (hr==12 && sec==50)
+            {
+              //console.log('   ',new Date().getHours());
+              audio.play();
+              //clearInterval(id);
+            }
+            if (hr==17 && sec==50)
+            {
+              //console.log('   ',new Date().getHours());
+              audio.play();
+              //clearInterval(id);
+            }
+        }
+    },1000,id)
+</script>
+<script>
+  setInterval((() => {
+    const lastMinute = new Date().getHours();
+    return () => {
+      const newMinute = new Date().getHours();
+      if (newMinute !== lastMinute) location.reload();
+    }
+  })(), 1000);
+</script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      weekNumbers: true,
+
+      headerToolbar: {
+        left: 'title',
+        center: '',
+        right: 'prev,next today dayGridMonth'
+      },
+
+      displayEventTime: false, // don't show the time column in list view
+
+      googleCalendarApiKey: 'AIzaSyCWmk4f3BqbZc8hnEeGH6I04TDf4AAX0-I', // 구글 API KEY
+      eventSources: [
+        {
+          googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com', // 구글 캘린더 아이디 [휴일]
+          color: '#713611'
+        },
+        {
+          googleCalendarId: 'YOUR GOOGLE ID @gmail.com', // 구글 아이디
+          className: 'nice-event',
+          color: '#1B4D6D'
+        }
+      ],
+
+      eventClick: function(arg) {
+        // opens events in a popup window
+        window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+
+        arg.jsEvent.preventDefault() // don't navigate in main tab
+      },
+
+      loading: function(bool) {
+        document.getElementById('loading').style.display =
+          bool ? 'block' : 'none';
+      }
+
+    });
+
+    calendar.render();
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .Section_top {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 40px 10px;
+    color: #ffffff;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    position: relative;
+    background-image: url(bg_img/1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 180s infinite ease-in-out;
+  }
+
+  @keyframes change{
+    0%
+    {
+        background-image: url(bg_img/6.jpg);
+    }
+
+    2%
+    {
+        background-image: url(bg_img/7.jpg);
+    }
+    20%
+    {
+        background-image: url(bg_img/7.jpg);
+    }
+
+    22%
+    {
+        background-image: url(bg_img/3.jpg);
+    }
+    40%
+    {
+        background-image: url(bg_img/3.jpg);
+    }
+
+    42%
+    {
+        background-image: url(bg_img/4.jpg);
+    }
+    60%
+    {
+        background-image: url(bg_img/4.jpg);
+    }
+
+    62%
+    {
+        background-image: url(bg_img/5.jpg);
+    }
+    80%
+    {
+        background-image: url(bg_img/5.jpg);
+    }
+
+    82%
+    {
+        background-image: url(bg_img/6.jpg);
+    }
+    100%
+    {
+        background-image: url(bg_img/6.jpg);
+    }
+    }
+
+  .grid-container {
+                display: grid;
+                padding: 5px;
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: 5px;
+                margin-bottom: 0px;
+            }
+  .grid-item {
+                text-align: center;
+                padding-bottom: 0px;
+            }
+  .grid02 { 
+            grid-template-columns: 230px auto; 
+            padding-top: 15px;
+            padding-bottom: 15px;
+          }
+
+  #loading {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  #calendar {
+    max-height: 550px;
+    margin: 0 0 10px 0;
+  }
+
+</style>
+</head>
+<body onload="startTime()">
+  <div class="Section_top">
+
+  <div id='loading'>loading...</div>
+  <div id='calendar'></div>
+
+  <div class="grid-container grid02">
+  <div class="grid-item">
+  <div id="clockdate">
+  <div class="clockdate-wrapper">
+    <div id="clock"></div>
+    <div id="date"></div>
+  </div>
+  </div>
+  <script  src="digital-clock-and-date/script.js"></script>
+  </div>
+  <div class="grid-item">
+<a class="weatherwidget-io" href="https://forecast7.com/en/36d35127d38/daejeon/" data-label_1="DAEJEON" data-label_2="WEATHER" data-theme="original" data-basecolor="" >DAEJEON WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+  </div>
+  
+  </div>
+  </div>
+
+</body>
+</html>

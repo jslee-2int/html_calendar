@@ -1,0 +1,30 @@
+.clockdate-wrapper {
+    padding:15px;
+    max-width:200px;
+    width:100%;
+    text-align:center;
+    border-radius:5px;
+    margin:0 auto;
+  
+}
+#clock{
+    font-family: sans-serif;
+    font-size:30px;
+    text-shadow:0px 0px 1px #fff;
+    color:#fff;
+    margin-top: 10px;
+}
+#clock span {
+    color:#90A18D;
+    text-shadow:0px 0px 1px #333;
+    font-size:25px;
+    position:relative;
+    top:-5px;
+    left:10px;
+}
+#date {
+    letter-spacing:3px;
+    font-size:14px;
+    font-family:arial,sans-serif;
+    color:#fff;
+}
