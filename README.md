@@ -73,7 +73,7 @@
 
 **3. Fullcalendar setting (index.html; line 46)**
 
- - 자세한 setting은 Fullcalendar 홈페이지 참고 부탁 드립니다.
+ - 자세한 setting은 Fullcalendar 홈페이지 참고 바랍니다.
 
 ```
 <script>
@@ -124,3 +124,8 @@
 
 </script>
 ```
+
+**4. 날씨 위젯 (index.html; line 221)**
+
+ - 마찬가지로 [WeatherWidget.io](https://weatherwidget.io/)에서 설정할 수 있다.
+ - 홈페이지 GET CODE에서 적당히 수정 후 사용 하면 된다.
