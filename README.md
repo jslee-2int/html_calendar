@@ -24,7 +24,7 @@
 
 - 현재는 11, 12, 17시 59분 50초에 소리 재생 되게 되어 있음.
 
-```
+```javascript
 <script>
 	var audio = new Audio('audio/5sec.mp3'); // 소리 파일
     var id =setInterval(function () {
@@ -59,7 +59,7 @@
 
 - 구글 스케쥴 연동 시 한시간 마다 새로 고침 하도록 함.
 
-```
+```javascript
 <script>
   setInterval((() => {
     const lastMinute = new Date().getHours();
@@ -75,7 +75,7 @@
 
  - 자세한 setting은 Fullcalendar 홈페이지 참고 바랍니다.
 
-```
+```javascript
 <script>
 
   document.addEventListener('DOMContentLoaded', function() {
